@@ -16,6 +16,7 @@ namespace FluentValidationApp.Models
         public DateTime? Birthday { get; set; }
         public IList<Address> Addresses { get; set; }
         public Gender Gender { get; set; }
+        public CreditCard CreditCard { get; set; }
 
         public string FullName2()
         {

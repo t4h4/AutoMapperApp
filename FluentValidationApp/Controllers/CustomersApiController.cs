@@ -31,7 +31,8 @@ namespace FluentValidationApp.Controllers
         [HttpGet]
         public IActionResult MappingOrnek()
         {
-            Customer customer = new Customer { Id = 1, Name = "Veli", Email = "veli@veli.com", Age = 40 };
+            Customer customer = new Customer
+            { Id = 1, Name = "Veli", Email = "veli@veli.com", Age = 40, CreditCard = new CreditCard { Number = "1234", ValidDate = DateTime.Now } };
             return Ok(_mapper.Map<CustomerDto>(customer));
         }
 
