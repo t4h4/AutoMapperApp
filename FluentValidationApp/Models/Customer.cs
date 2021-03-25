@@ -17,7 +17,7 @@ namespace FluentValidationApp.Models
         public IList<Address> Addresses { get; set; }
         public Gender Gender { get; set; }
 
-        public string GetFullName() //başına get gelince dto tarafından otomatik olarak map'leniyor.
+        public string FullName2()
         {
             return $"{Name}-{Email}-{Age}";
         }
