@@ -12,7 +12,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using AutoMapper;
 namespace FluentValidationApp
 {
     public class Startup
@@ -27,6 +27,13 @@ namespace FluentValidationApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            // DI olarak kullanabilmek için servis olarak ekledik automapper'ý. Artýk IMapper interface'ini herhangi bir class'ýn
+            // constructor'ýnda kullandýgým zaman, IMapper üzerinden dönüþtürme iþlemleri gerçekleþtirebileceðim. IMapper herhangi bir
+            // nesneyi Dto'ya ya da tam tersine dönüþtürmemizi saðlayan hazýr metotlar sunan bir interface. bu interface'i kullanabilmek için
+            // herhangi bir class'ýn constructor'ýnda DI olarak geçtiðim zaman kullanabiliyor olacaðým. Bunu aþaðýdaki servis sayesinde gerçekleþtireceðim.
+            services.AddAutoMapper(typeof(Startup));
+
             services.AddDbContext<AppDbContext>(options =>
             {
                 options.UseSqlServer(Configuration["ConStr"]);
