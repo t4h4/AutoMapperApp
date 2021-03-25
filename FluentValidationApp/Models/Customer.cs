@@ -16,5 +16,10 @@ namespace FluentValidationApp.Models
         public DateTime? Birthday { get; set; }
         public IList<Address> Addresses { get; set; }
         public Gender Gender { get; set; }
+
+        public string GetFullName() //başına get gelince dto tarafından otomatik olarak map'leniyor.
+        {
+            return $"{Name}-{Email}-{Age}";
+        }
     }
 }
