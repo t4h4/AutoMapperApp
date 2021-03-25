@@ -13,7 +13,12 @@ namespace FluentValidationApp.Mapping
         public CustomerProfile()
         {
             // kaynak ve hedef
-            CreateMap<Customer, CustomerDto>().ReverseMap(); //reverse map ile tam terside gerçekleşmeye imkan verir. daha az kod yazıyoruz. 
+            CreateMap<Customer, CustomerDto>()
+                .ForMember(dest => dest.Isim, opt => opt.MapFrom(x => x.Name))
+                .ForMember(dest => dest.Eposta, opt => opt.MapFrom(x => x.Email))
+                .ForMember(dest => dest.Yas, opt => opt.MapFrom(x => x.Age));
+
         }
     }
 }
+    
